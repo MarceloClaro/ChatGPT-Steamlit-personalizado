@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-openai.api_key = 'sk-HThZaAIVEoWVSAAPztTT3BlbkFJGMCtUzsYlebJFxty7JbC'
+openai.api_key = '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'
 
 messages = [ 
     {"role": "system", "content": "Olá, sou um chatbot com conhecimento em diversos assuntos. Tente me perguntar alguma coisa!"},
