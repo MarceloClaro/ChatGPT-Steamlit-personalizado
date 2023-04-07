@@ -13,7 +13,7 @@ def generate_answer(question):
     response = openai.Completion.create(
         engine=model_engine,
         prompt=prompt,
-        max_tokens=3000,
+        max_tokens=2000,
         n=1,
         stop=None,
         temperature=0.7,
