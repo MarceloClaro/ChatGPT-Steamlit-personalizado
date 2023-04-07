@@ -1,40 +1,24 @@
-import openai
 import streamlit as st
+import openai
 
-# Defina sua chave de API
-openai.api_key = "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"
+openai.api_key = 'sk-HThZaAIVEoWVSAAPztTT3BlbkFJGMCtUzsYlebJFxty7JbC'
 
-# Defina o modelo que será usado para gerar as respostas
-model_engine = "text-davinci-002"
+messages = [ 
+    {"role": "system", "content": "Você é um especialista em prompts de artigos científicos com citações e referências."},
+]
 
-# Define a função para gerar uma resposta com base em uma pergunta
-def generate_answer(question):
-    prompt = f"Eu gostaria de saber {question}. A resposta é:"
-    response = openai.Completion.create(
-        engine=model_engine,
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.7,
-    )
-    return response.choices[0].text.strip()
+st.title("Chatbot com GPT-3.5 Turbo")
 
-# Cria a interface do Streamlit
-def main():
-    st.title("Gerador de respostas usando OpenAI")
-
-    # Obtém a pergunta do usuário
-    question = st.text_input("Faça uma pergunta:")
-    if not question:
-        return
-
-    # Gera a resposta com base na pergunta
-    with st.spinner("Gerando resposta..."):
-        answer = generate_answer(question)
-
-    # Mostra a resposta para o usuário
-    st.write(answer)
-
-if __name__ == "__main__":
-    main()
+while True:
+    message = st.text_input("Você : ")
+    if message:
+        messages.append({"role": "user", "content": message})
+        chat = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            max_tokens=2000 # Definindo o valor máximo de tokens para 4000
+        )
+    
+        reply = chat.choices[0].message.content
+        st.write("ChatGPT:", reply)
+        messages.append({"role": "assistant", "content": reply})
