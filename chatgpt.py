@@ -12,8 +12,6 @@ import os
 os.system('pip install openai')
 
 
-pip install os
-
 import streamlit as st
 import openai
 
