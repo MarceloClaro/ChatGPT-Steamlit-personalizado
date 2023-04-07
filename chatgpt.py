@@ -1,9 +1,9 @@
 import streamlit as st
 import openai
 
-openai.api_key = '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'
+openai.api_key = "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"
 
-st.title('Chat com OpenAI GPT-3')
+st.title('Chat com OpenAI GPT-3 - Prof. marcelo Claro')
 
 user_input = st.text_input('User :')
 
