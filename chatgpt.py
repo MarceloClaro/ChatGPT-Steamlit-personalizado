@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Defina sua chave de API
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Defina o modelo que será usado para gerar as respostas
 model_engine = " text-davinci-002 "
