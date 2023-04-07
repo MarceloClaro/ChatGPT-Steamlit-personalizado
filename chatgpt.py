@@ -5,7 +5,7 @@ import streamlit as st
 openai.api_key = "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"
 
 # Defina o modelo que será usado para gerar as respostas
-model_engine = "text-davinci-002"
+model_engine = " text-davinci-002 "
 
 # Define a função para gerar uma resposta com base em uma pergunta
 def generate_answer(question):
