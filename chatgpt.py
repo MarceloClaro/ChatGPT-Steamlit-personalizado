@@ -7,7 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1A0IU9gCEDRYCmsfjESTc4RZ_WwbzvzBx
 """
 
-pip install openai
+import os
+os.system('pip install openai')
+
 
 pip install streamlit
 
