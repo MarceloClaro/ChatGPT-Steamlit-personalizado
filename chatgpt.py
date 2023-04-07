@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 st.title('Chat com OpenAI GPT-3')
 
