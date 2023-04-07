@@ -1,40 +1,26 @@
-import openai
 import streamlit as st
+import openai
 
-# Defina sua chave de API
-openai.api_key = "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"
+openai.api_key = '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'
 
-# Defina o modelo que será usado para gerar as respostas
-model_engine = " text-davinci-002 "
+st.title('Chat com OpenAI GPT-3')
 
-# Define a função para gerar uma resposta com base em uma pergunta
-def generate_answer(question):
-    prompt = f"Eu gostaria de saber {question}. A resposta é:"
-    response = openai.Completion.create(
-        engine=model_engine,
+user_input = st.text_input('User :')
+
+if user_input:
+    messages = [{"role": "user", "content": user_input}]
+    prompt = " ".join([message["content"] for message in messages])
+
+    completions = openai.Completion.create(
+        engine="davinci",
         prompt=prompt,
         max_tokens=1024,
         n=1,
         stop=None,
         temperature=0.7,
     )
-    return response.choices[0].text.strip()
 
-# Cria a interface do Streamlit
-def main():
-    st.title("Gerador de respostas usando OpenAI - Marcelo Claro")
+    message = completions.choices[0].text.strip()
+    messages.append({"role": "assistant", "content": message})
 
-    # Obtém a pergunta do usuário
-    question = st.text_input("Faça uma pergunta:")
-    if not question:
-        return
-
-    # Gera a resposta com base na pergunta
-    with st.spinner("Gerando resposta..."):
-        answer = generate_answer(question)
-
-    # Mostra a resposta para o usuário
-    st.write(answer)
-
-if __name__ == "__main__":
-    main()
+    st.text_area("ChatGPT:", value=message, height=200)
