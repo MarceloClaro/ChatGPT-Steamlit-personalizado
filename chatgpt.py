@@ -13,17 +13,17 @@ def generate_answer(question):
     response = openai.Completion.create(
         engine=model_engine,
         prompt=prompt,
-        max_tokens=4000,
+        max_tokens=3000,
         n=1,
         stop=None,
-        temperature=0.7,
+        temperature=0.5,
     )
     return response.choices[0].text.strip()
 
 # Cria a interface do Streamlit
 def main():
-    st.title("Gerador de respostas usando OpenAI")
-    st.title("GeoMaker +IA - Prof. Marcelo Claro")
+    st.title("Gerador de respostas usando OpenAI - Marcelo Claro")
+    
     # Obtém a pergunta do usuário
     question = st.text_input("Faça uma pergunta:")
     if not question:
