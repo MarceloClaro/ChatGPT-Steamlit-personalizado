@@ -8,6 +8,7 @@ Original file is located at
 """
 
 pip install openai
+
 pip install streamlit
 
 import streamlit as st
