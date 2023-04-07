@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Defina sua chave de API
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Defina o modelo que será usado para gerar as respostas
 model_engine = " text-davinci-002 "
@@ -22,7 +22,7 @@ def generate_answer(question):
 
 # Cria a interface do Streamlit
 def main():
-    st.title("Gerador de respostas usando OpenAI")
+    st.title("Gerador de respostas usando OpenAI - Marcelo Claro")
 
     # Obtém a pergunta do usuário
     question = st.text_input("Faça uma pergunta:")
